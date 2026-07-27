@@ -93,6 +93,14 @@ a{ color:inherit; }
   opacity:0; transform: scale(0.97);
   z-index:4;
 }
+/* Message chapters can run long — let the whole screen scroll
+   (top-aligned) instead of boxing the text in its own scrollbar. */
+.screen.scrollable{
+  align-items:flex-start;
+  overflow-y:auto;
+  padding-top: 10vh;
+  padding-bottom: 6vh;
+}
 
 .screen-inner{
   max-width: 720px;
@@ -181,12 +189,8 @@ a{ color:inherit; }
   padding: clamp(1.6rem, 4vw, 3rem);
   backdrop-filter: blur(14px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
-  max-height: 62vh;
-  overflow-y: auto;
   text-align:left;
 }
-.glass-card::-webkit-scrollbar{ width:5px; }
-.glass-card::-webkit-scrollbar-thumb{ background: var(--glass-border); border-radius:10px; }
 
 .glass-card p{
   font-size: clamp(1rem, 2.2vw, 1.15rem);
@@ -359,7 +363,8 @@ a{ color:inherit; }
    ================================================================ */
 @media (max-width:600px){
   .screen{ padding:6vh 5vw; }
-  .glass-card{ max-height:56vh; padding:1.4rem; }
+  .screen.scrollable{ padding-top:6vh; }
+  .glass-card{ padding:1.4rem; }
   .choice-row{ min-height:150px; }
 }
 </style>
@@ -393,7 +398,7 @@ a{ color:inherit; }
       I made this little corner of the internet just for you. It won't take long —
       but I promise it comes from the heart. Whenever you're ready...
     </p>
-    <button class="btn" id="btn-start">Start ❤️</button>
+    <button class="btn" id="btn-start">Start Our Journey ❤️</button>
   </div>
 </section>
 
@@ -403,7 +408,7 @@ a{ color:inherit; }
 <section class="screen" id="screen-part1" data-index="1">
   <div class="heart-field"></div>
   <div class="screen-inner">
-    <div class="eyebrow">FOR YOU</div>
+    <div class="eyebrow">chapter one</div>
     <h2 class="headline">
       <span class="reveal-line" data-line>There's something I've been wanting to tell you…</span><br>
       <span class="reveal-line" data-line>Something that's been on my mind for a while…</span><br>
@@ -416,10 +421,10 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 3 — PART 2: "What I Want You To Know"
      ============================================================ -->
-<section class="screen" id="screen-part2" data-index="2">
+<section class="screen scrollable" id="screen-part2" data-index="2">
   <div class="heart-field"></div>
   <div class="screen-inner">
-    <div class="eyebrow">FOR YOU</div>
+    <div class="eyebrow">chapter two — what i want you to know</div>
     <div class="glass-card" id="part2-card">
       <!-- ====== EDIT YOUR MESSAGE HERE (Part 2) ====== -->
       <p data-para>Dear Bhondu,<br>
@@ -429,21 +434,6 @@ a{ color:inherit; }
       but sagla vach time kaad thoda mala pn mahit ahe tu busy asnar tashi roj ch aste but tu pls he sagla vach<br>
       Mala mahit pn ny ki tula birthdayy wish krun he vachun tuzha mood khrb hoil ka changla fkt tu vach he sagla cause<br>
       I like you I have feelings for you</p>
-      <!-- ====== END EDITABLE MESSAGE ====== -->
-    </div>
-    <button class="btn" id="btn-part2-next" style="opacity:0; pointer-events:none; transition:opacity 1s ease;">There's Still Something I Want To Say… ❤️</button>
-  </div>
-</section>
-
-<!-- ============================================================
-     SCREEN 3 — PART 2: "What I Want You To Know"
-     ============================================================ -->
-<section class="screen" id="screen-part2" data-index="2">
-  <div class="heart-field"></div>
-  <div class="screen-inner">
-    <div class="eyebrow">FOR YOU</div>
-    <div class="glass-card" id="part2-card">
-      <!-- ====== EDIT YOUR MESSAGE HERE (Part 2) ====== -->
       <p data-para>Pyaar tab ny hota jab koi bahot jyada khoobsurat ho<br>
       Pyaar toh tab hota jab aapko uski aadat lg jaaye<br>
       Jab din ki shuruwat hi uske khyaal se aaye<br>
@@ -470,11 +460,10 @@ a{ color:inherit; }
   </div>
 </section>
 
-
 <!-- ============================================================
      SCREEN 4 — PART 3: "One More Thing…"
      ============================================================ -->
-<section class="screen" id="screen-part3" data-index="3">
+<section class="screen scrollable" id="screen-part3" data-index="3">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <div class="eyebrow">chapter three — one more thing</div>
@@ -501,7 +490,7 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 4b — PART 3b: continuing the message
      ============================================================ -->
-<section class="screen" id="screen-part3b" data-index="4">
+<section class="screen scrollable" id="screen-part3b" data-index="4">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <div class="eyebrow">chapter four — still more</div>
@@ -538,7 +527,7 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 4c — PART 3c: continuing the message
      ============================================================ -->
-<section class="screen" id="screen-part3c" data-index="5">
+<section class="screen scrollable" id="screen-part3c" data-index="5">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <div class="eyebrow">chapter five — almost there</div>
@@ -563,7 +552,7 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 4d — PART 3d: the final, longest message
      ============================================================ -->
-<section class="screen" id="screen-part3d" data-index="6">
+<section class="screen scrollable" id="screen-part3d" data-index="6">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <div class="eyebrow">chapter six — from the heart</div>
@@ -579,6 +568,19 @@ a{ color:inherit; }
       <p data-para>Tula vatat asel g ki tu average mulgi ahes krun<br>
       Pn mazha sathi tu average ny ahes<br>
       Mazha sathi tu important ahe ani rahnar</p>
+    </div>
+    <button class="btn" id="btn-part3d-next" style="opacity:0; pointer-events:none; transition:opacity 1s ease;">There's Still More… ❤️</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 4e — PART 3e: the final message, continued
+     ============================================================ -->
+<section class="screen scrollable" id="screen-part3e" data-index="7">
+  <div class="heart-field"></div>
+  <div class="screen-inner">
+    <div class="eyebrow">chapter seven — the last of it</div>
+    <div class="glass-card" id="part3e-card" style="background:rgba(201,123,132,0.05); border-color:rgba(201,123,132,0.28);">
       <p data-para>Agar tum samundar hoti toh saara paani mein khudko samet lunga<br>
       Agar tum meri ny banna chahti toh mein mahadev ji se tujhe maang lunga<br>
       Tum haa bol do bas ek baar<br>
@@ -606,14 +608,14 @@ a{ color:inherit; }
       Tula hava te kr but mala sobt gheun kr<br>
       Fakt majhi banun raha 🥺🥺🥺</p>
     </div>
-    <button class="btn" id="btn-part3d-next" style="opacity:0; pointer-events:none; transition:opacity 1s ease;">I Have One Last Question… ❤️</button>
+    <button class="btn" id="btn-part3e-next" style="opacity:0; pointer-events:none; transition:opacity 1s ease;">I Have One Last Question… ❤️</button>
   </div>
 </section>
 
 <!-- ============================================================
      SCREEN 5 — PART 4: "The Question" (suspense)
      ============================================================ -->
-<section class="screen" id="screen-part4" data-index="7">
+<section class="screen" id="screen-part4" data-index="8">
   <div class="screen-inner">
     <div class="pulse-dot"></div>
     <h2 class="headline" style="margin-top:1.2rem;">
@@ -628,7 +630,7 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 6 — FINAL PROPOSAL
      ============================================================ -->
-<section class="screen" id="screen-proposal" data-index="8">
+<section class="screen" id="screen-proposal" data-index="9">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <svg class="proposal-heart-svg" viewBox="0 0 100 90">
@@ -646,7 +648,7 @@ a{ color:inherit; }
 <!-- ============================================================
      SCREEN 7 — SUCCESS
      ============================================================ -->
-<section class="screen" id="screen-success" data-index="9">
+<section class="screen" id="screen-success" data-index="10">
   <div class="heart-field"></div>
   <div class="screen-inner">
     <div class="eyebrow">and just like that</div>
@@ -695,7 +697,8 @@ const CONFIG = {
     part3Next: "There's More I Want To Say… ❤️",
     part3bNext: "Still More… ❤️",
     part3cNext: "One Last Part… ❤️",
-    part3dNext: "I Have One Last Question… ❤️",
+    part3dNext: "There's Still More… ❤️",
+    part3eNext: "I Have One Last Question… ❤️",
     ready: "Ready? ❤️",
     yes: "Yes ❤️",
     no: "No 🙈"
@@ -728,6 +731,7 @@ document.getElementById('btn-part3-next').textContent = CONFIG.buttonTexts.part3
 document.getElementById('btn-part3b-next').textContent = CONFIG.buttonTexts.part3bNext;
 document.getElementById('btn-part3c-next').textContent = CONFIG.buttonTexts.part3cNext;
 document.getElementById('btn-part3d-next').textContent = CONFIG.buttonTexts.part3dNext;
+document.getElementById('btn-part3e-next').textContent = CONFIG.buttonTexts.part3eNext;
 document.getElementById('btn-ready').textContent = CONFIG.buttonTexts.ready;
 document.getElementById('btn-yes').textContent = CONFIG.buttonTexts.yes;
 document.getElementById('btn-no').textContent = CONFIG.buttonTexts.no;
@@ -802,7 +806,8 @@ document.getElementById('btn-part2-next').addEventListener('click', ()=> goTo('s
 document.getElementById('btn-part3-next').addEventListener('click', ()=> goTo('screen-part3b'));
 document.getElementById('btn-part3b-next').addEventListener('click', ()=> goTo('screen-part3c'));
 document.getElementById('btn-part3c-next').addEventListener('click', ()=> goTo('screen-part3d'));
-document.getElementById('btn-part3d-next').addEventListener('click', ()=> goTo('screen-part4'));
+document.getElementById('btn-part3d-next').addEventListener('click', ()=> goTo('screen-part3e'));
+document.getElementById('btn-part3e-next').addEventListener('click', ()=> goTo('screen-part4'));
 document.getElementById('btn-ready').addEventListener('click', ()=> goTo('screen-proposal'));
 
 /* Run the very first reveal (welcome screen has no reveal-lines, but harmless) */
