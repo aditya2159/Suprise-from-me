@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2a1015">
+  <title>Happy Birthday, Mrunmayi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <style> 
+    :root { --wine:#2a1015; --burgundy:#4a1a26; --red:#8c2436; --rose:#c79a96; --gold:#c6a165; --gold-soft:#e4c98f; --cream:#f4ece1; --ink:#211014; --serif:'Cormorant Garamond', Georgia, serif; --display:'Playfair Display', Georgia, serif; --label:'Jost', Arial, sans-serif; }
+    * { box-sizing:border-box; }
+    html, body { width:100%; min-height:100%; margin:0; }
+    body { overflow:hidden; color:var(--cream); font-family:var(--serif); font-variant-emoji:text; background:radial-gradient(circle at 50% -10%, #5a2430 0, var(--wine) 45%, #0f070a 100%); }
+    button { font:inherit; }
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+    .ambient, .scene, #loading, #celebration, #particles { position:fixed; inset:0; }
+    .ambient { pointer-events:none; overflow:hidden; background:radial-gradient(ellipse at 15% 85%, rgba(199,154,150,.10), transparent 34%), radial-gradient(ellipse at 85% 20%, rgba(198,161,101,.10), transparent 32%); }
+    .orb { position:absolute; width:18rem; aspect-ratio:1; border-radius:50%; filter:blur(55px); opacity:.15; animation:drift 13s ease-in-out infinite alternate; background:var(--rose); }
+    .orb.one { top:-9rem; left:-5rem; } .orb.two { right:-6rem; bottom:-9rem; background:var(--gold); animation-delay:-5s; }
+    @keyframes drift { to { transform:translate(10vw, 6vh) scale(1.18); } }
+    #loading { z-index:50; display:grid; place-items:center; background:radial-gradient(circle, #4a1a26 0, #0f070a 68%); transition:opacity .75s ease, visibility .75s ease; }
+    #loading.done { opacity:0; visibility:hidden; }
+    .loading-inner { text-align:center; padding:2rem; }
+    .loading-heart { display:block; font-size:4rem; animation:pulse 1.1s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform:scale(1.18); filter:drop-shadow(0 0 16px rgba(198,161,101,.55)); } }
+    .loading-inner p { margin:1rem 0; letter-spacing:.16em; font-size:.75rem; text-transform:uppercase; color:var(--gold); }
+    .progress { width:min(16rem, 75vw); height:3px; margin:auto; overflow:hidden; background:rgba(255,255,255,.18); border-radius:99px; }
+    .progress::after { content:''; display:block; height:100%; background:linear-gradient(90deg, var(--rose), var(--gold)); animation:load 2.1s ease forwards; transform-origin:left; }
+    @keyframes load { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+    .scene { z-index:2; display:grid; place-items:center; padding:clamp(1rem, 4vw, 2.5rem); opacity:0; visibility:hidden; transform:scale(1.02); transition:opacity .6s ease, transform .6s ease, visibility .6s; overflow-y:auto; }
+    .scene.active { opacity:1; visibility:visible; transform:none; }
+    .panel { width:min(100%, 45rem); margin:auto; padding:clamp(1.6rem, 5vw, 3.6rem); text-align:center; border:1px solid rgba(198,161,101,.32); border-radius:.65rem; background:linear-gradient(145deg, rgba(244,236,225,.08), rgba(74,26,38,.22)); box-shadow:0 1.5rem 4rem rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.08); backdrop-filter:blur(13px); position:relative; }
+    .panel::before { content:'✦'; display:block; margin:0 0 1rem; color:var(--gold); font-size:.75rem; opacity:.85; }
+    .eyebrow { margin:0 0 .8rem; color:var(--gold); font-family:var(--label); font-size:.7rem; font-weight:500; letter-spacing:.28em; text-transform:uppercase; }
+    h1, h2 { margin:.15em 0; line-height:1.08; font-weight:500; font-family:var(--display); }
+    h1 { font-size:clamp(2.6rem, 8vw, 5.4rem); letter-spacing:.01em; text-shadow:0 0 34px rgba(198,161,101,.22); }
+    h2 { font-size:clamp(1.9rem, 6vw, 3.4rem); color:var(--gold-soft); font-style:italic; }
+    .lead { max-width:34rem; margin:1.2rem auto 0; color:#e6d5ca; font-size:clamp(1.02rem, 2.4vw, 1.22rem); line-height:1.8; font-weight:400; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; min-height:2.9rem; margin-top:1.9rem; padding:.8rem 2.1rem; border:1px solid var(--gold); border-radius:1px; color:var(--gold-soft); background:transparent; font-family:var(--label); font-size:.78rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; box-shadow:none; cursor:pointer; transition:background .35s ease, color .35s ease, transform .3s ease, letter-spacing .3s ease; }
+    .button:hover, .button:focus-visible { background:var(--gold); color:var(--ink); transform:translateY(-2px); letter-spacing:.2em; outline:1px solid var(--gold-soft); outline-offset:3px; }
+    .gift-wrap { display:grid; place-items:center; min-height:20rem; cursor:pointer; }
+    .gift { position:relative; width:min(13rem, 57vw); height:min(10rem, 44vw); margin-top:3rem; filter:drop-shadow(0 1.1rem 1.2rem rgba(0,0,0,.35)); transform-style:preserve-3d; animation:giftFloat 2.7s ease-in-out infinite; }
+    @keyframes giftFloat { 50% { transform:translateY(-11px) rotate(-1deg); } }
+    .box { position:absolute; inset:2.8rem 0 0; border-radius:.35rem .35rem 1.1rem 1.1rem; background:linear-gradient(135deg, #4a1826, #6b2030 45%, #331019); overflow:hidden; }
+    .box::before, .lid::before { content:''; position:absolute; top:0; bottom:0; left:44%; width:13%; background:linear-gradient(90deg, #a8813f, #e4c98f, #a8813f); }
+    .lid { position:absolute; z-index:2; top:1.9rem; width:110%; height:3.1rem; left:-5%; border-radius:.5rem; background:linear-gradient(135deg, #5c1b2c, #7a2436 48%, #3a1420); transform-origin:8% 100%; transition:transform 1s cubic-bezier(.2,.8,.2,1); }
+    .bow { position:absolute; z-index:3; top:.25rem; left:50%; width:5rem; height:2.9rem; transform:translateX(-50%); }
+    .bow::before, .bow::after { content:''; position:absolute; top:0; width:2.5rem; height:2rem; border:7px solid var(--gold); border-radius:75% 25% 75% 25%; } .bow::before { left:0; transform:rotate(28deg); } .bow::after { right:0; transform:rotate(62deg) scaleX(-1); }
+    .gift.open { animation:none; } .gift.open .lid { transform:rotateX(168deg) rotateZ(-12deg) translateY(-.25rem); } .gift.open .box { animation:boxGlow 1.3s ease both; }
+    @keyframes boxGlow { 50% { box-shadow:0 -1.6rem 3rem rgba(228,201,143,.65); } }
+    .gift-note { margin-top:2rem; color:var(--gold); letter-spacing:.08em; }
+    .secret-form { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; max-width:28rem; margin:2rem auto 0; }
+    .secret-input { min-width:min(100%, 16rem); flex:1; padding:.9rem 1rem; border:1px solid rgba(198,161,101,.5); border-radius:1px; color:var(--cream); background:rgba(20,1,8,.34); font:inherit; text-align:center; letter-spacing:.16em; text-transform:uppercase; }
+    .secret-input:focus { outline:2px solid var(--gold); outline-offset:3px; }
+    .secret-form .button { margin:0; }
+    .secret-error { min-height:1.4rem; margin:.8rem 0 0; color:#d9a7ab; font-family:var(--label); font-size:.85rem; letter-spacing:.03em; }
+    .birthday-name { display:inline-block; color:var(--gold-soft); font-style:italic; animation:nameReveal 1.3s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes nameReveal { from { opacity:0; transform:translateY(.65em); filter:blur(7px); } }
+    .letter { text-align:center; max-width:37rem; margin:1.6rem auto 0; padding:1.2rem 0; color:#ead9cf; font-size:clamp(1rem,2.5vw,1.15rem); line-height:1.9; font-style:italic; border-top:1px solid rgba(198,161,101,.35); border-bottom:1px solid rgba(198,161,101,.35); }
+    .reasons { display:grid; gap:.75rem; margin:1.6rem auto 0; max-width:35rem; text-align:left; }
+    .reason { width:100%; padding:1rem 1.15rem; border:1px solid rgba(198,161,101,.28); border-radius:.4rem; color:var(--cream); background:rgba(255,255,255,.05); cursor:pointer; text-align:left; transition:transform .2s, background .2s; }
+    .reason:hover, .reason:focus-visible { transform:translateX(.25rem); background:rgba(255,255,255,.14); outline:2px solid var(--gold); outline-offset:2px; }
+    .reason strong { color:var(--gold-soft); font-family:var(--label); letter-spacing:.05em; font-size:.92rem; } .reason span { display:block; max-height:0; overflow:hidden; color:#e6d5ca; line-height:1.55; opacity:0; transition:max-height .35s ease, opacity .3s ease, margin .3s; }
+    .reason.open span { max-height:20rem; margin-top:.45rem; opacity:1; }
+    .cake-stage { padding:1.1rem 0 .3rem; }
+    .cake { position:relative; width:min(18rem, 77vw); height:14rem; margin:1rem auto .4rem; }
+    .plate { position:absolute; bottom:0; left:5%; width:90%; height:1.25rem; border-radius:50%; background:linear-gradient(90deg, #8a6b3d, #d9bd7c, #8a6b3d); box-shadow:0 .5rem 1rem rgba(0,0,0,.25); }
+    .tier { position:absolute; left:50%; transform:translateX(-50%); border:2px solid rgba(228,201,143,.4); background:linear-gradient(120deg, #4a1826, #6b2030 52%, #3a1420); box-shadow:inset 0 .4rem .5rem rgba(255,255,255,.15); }
+    .tier.bottom { bottom:1rem; width:92%; height:5rem; border-radius:.5rem .5rem 1.6rem 1.6rem; } .tier.middle { bottom:5.55rem; width:70%; height:3.6rem; border-radius:.4rem .4rem 1rem 1rem; } .tier.top { bottom:8.75rem; width:48%; height:2.8rem; border-radius:.35rem .35rem .8rem .8rem; }
+    .icing { position:absolute; left:0; right:0; top:0; height:.85rem; border-radius:50%; background:linear-gradient(90deg, #d9bd7c, #f0e1bd, #c9a165); }
+    .candle-row { position:absolute; z-index:4; bottom:11rem; left:14%; right:14%; display:flex; justify-content:space-between; }
+    .candle { position:relative; width:1rem; height:2.55rem; padding:0; border:0; border-radius:.18rem; background:repeating-linear-gradient(90deg, #c9a165 0 .22rem, #7a3a42 .22rem .44rem); cursor:pointer; box-shadow:inset -.16rem 0 rgba(0,0,0,.13); }
+    .flame { position:absolute; left:50%; bottom:100%; width:.9rem; height:1.35rem; border-radius:60% 60% 60% 60%; transform:translateX(-50%); background:radial-gradient(circle at 50% 70%, #fff3d0 0 25%, #e8a94a 28% 55%, #c9622f 58%); filter:drop-shadow(0 0 8px rgba(232,169,74,.7)); animation:flicker .7s infinite alternate; }
+    @keyframes flicker { to { transform:translateX(-50%) scaleX(.77) translateY(.1rem); } }
+    .candle.out .flame { opacity:0; transform:translateX(-50%) scale(.1); transition:.25s; }
+    .wish-counter { min-height:1.5rem; margin:.7rem 0 0; color:var(--gold); }
+    #celebration { z-index:20; display:grid; place-items:center; padding:1.4rem; text-align:center; pointer-events:none; opacity:0; visibility:hidden; transition:opacity .7s ease, visibility .7s ease; background:radial-gradient(circle at center, rgba(74,26,38,.7), rgba(15,7,10,.96)); }
+    #celebration.show { opacity:1; visibility:visible; pointer-events:auto; } .final-panel { position:relative; z-index:2; max-width:47rem; animation:rise .8s .2s both; } @keyframes rise { from { opacity:0; transform:translateY(2rem); } }
+    #particles { z-index:21; pointer-events:none; overflow:hidden; }
+    .more-message { margin:1.3rem 0 -.7rem; color:var(--gold); font-size:1.05rem; letter-spacing:.08em; }
+    #nextSurprise { margin-top:1.2rem; }
+    #proposalFrame { position:fixed; inset:0; z-index:100; display:block; width:100%; height:100%; border:0; background:#080207; }
+    .heart { position:fixed; z-index:22; bottom:-3rem; color:var(--gold-soft); animation:riseHeart linear forwards; filter:drop-shadow(0 0 8px rgba(198,161,101,.55)); } @keyframes riseHeart { to { transform:translate(var(--drift), -115vh) rotate(480deg); opacity:0; } }
+    .confetti { position:fixed; z-index:22; width:.55rem; height:.9rem; background:var(--c); animation:fall var(--duration) linear forwards; } @keyframes fall { to { transform:translate(var(--x), 110vh) rotate(720deg); opacity:.1; } }
+    canvas { position:fixed; inset:0; z-index:20; width:100%; height:100%; pointer-events:none; }
+    .music-note { position:fixed; right:1rem; bottom:1rem; z-index:10; width:2.65rem; height:2.65rem; border:1px solid rgba(198,161,101,.45); border-radius:50%; color:var(--gold); background:rgba(33,16,20,.7); cursor:pointer; } .music-note:disabled { opacity:.48; cursor:default; }
+    .photo-frame { display:grid; place-items:center; margin:0 auto 1.2rem; }
+    .her-photo { width:min(14rem, 58vw); height:min(14rem, 58vw); object-fit:cover; border-radius:50%; border:1px solid var(--gold); box-shadow:0 0 0 6px rgba(198,161,101,.18), 0 1.5rem 3rem rgba(0,0,0,.4); animation:photoGlow 3.4s ease-in-out infinite; }
+    @keyframes photoGlow { 50% { box-shadow:0 0 0 9px rgba(198,161,101,.3), 0 1.5rem 3rem rgba(0,0,0,.45); } }
+    .envelope-wrap { display:grid; place-items:center; min-height:19rem; cursor:pointer; }
+    .envelope { position:relative; width:min(14.5rem, 62vw); height:min(9.5rem, 42vw); margin-top:2.6rem; filter:drop-shadow(0 1.1rem 1.2rem rgba(0,0,0,.35)); animation:giftFloat 2.7s ease-in-out infinite; }
+    .envelope-back { position:absolute; inset:0; border-radius:.5rem; background:linear-gradient(145deg, #f4ece1, #cf9fa0 55%, #c6a165); box-shadow:inset 0 1px rgba(255,255,255,.35); overflow:hidden; }
+    .envelope-back::before { content:''; position:absolute; left:0; right:0; bottom:0; height:60%; background:linear-gradient(120deg, transparent 49%, rgba(0,0,0,.06) 50%, transparent 51%); }
+    .envelope-flap { position:absolute; top:0; left:0; right:0; height:58%; z-index:2; background:linear-gradient(135deg, #d9a7a8, #c6a165); clip-path:polygon(0 0, 50% 68%, 100% 0); transform-origin:top; transition:transform 1.1s cubic-bezier(.2,.8,.2,1); box-shadow:0 .2rem .4rem rgba(0,0,0,.12); }
+    .envelope-heart { position:absolute; z-index:1; left:50%; top:60%; transform:translate(-50%,-50%); color:var(--red); font-size:1.7rem; filter:drop-shadow(0 0 6px rgba(197,45,82,.5)); }
+    .envelope.open .envelope-flap { transform:rotateX(-178deg); }
+    .envelope.open .envelope-back { animation:boxGlow 1.3s ease both; }
+    @media (max-height:650px) and (min-width:601px) { .panel { padding:1.5rem 2.5rem; } .gift-wrap { min-height:14rem; } .cake { transform:scale(.82); margin:-.7rem auto -1.7rem; } .letter { line-height:1.55; } }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <!-- Optional music: place birthday-song.mp3 beside this file, then uncomment the source below.
+       Browsers require a visitor interaction before music can play. -->
+  <audio id="music" loop preload="none">
+    <!-- <source src="birthday-song.mp3" type="audio/mpeg"> -->
+  </audio>
+  
+
+  <div class="ambient" aria-hidden="true"><div class="orb one"></div><div class="orb two"></div></div>
+  <div id="loading" aria-label="Loading birthday surprise"><div class="loading-inner"><span class="loading-heart">♥</span><p>A small surprise is on its way</p><div class="progress"></div></div></div>
+
+  <main>
+    <section class="scene active" id="photoScene" aria-label="A photo just for her">
+      <div class="panel">
+        <p class="eyebrow">Before anything else</p>
+        <div class="photo-frame">
+          <!-- Replace her-photo.jpg with the real photo file, placed beside this page -->
+          <img class="her-photo" src="her-photo.PNG" alt="A photo of her">
+        </div>
+        <h1>It's Your Day <span aria-hidden="true">♥</span></h1>
+        <p class="lead">Aaj cha divas fakt tujha ahe.</p>
+        <button class="button" type="button" data-next="secretScene">Continue <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="scene" id="secretScene" aria-label="Secret code entry">
+      <div class="panel"><p class="eyebrow">A private little surprise</p><h1>Enter the secret code</h1><p class="lead">A small clue: Type anything and get the hint. </p><form class="secret-form" id="secretForm"><label class="sr-only" for="secretCode">Secret code</label><input class="secret-input" id="secretCode" type="text" autocomplete="off" placeholder="YOUR SECRET CODE" required><button class="button" type="submit">Unlock <span aria-hidden="true">✦</span></button></form><p class="secret-error" id="secretError" aria-live="polite"></p></div>
+    </section>
+    <section class="scene" id="giftScene" aria-label="Birthday surprise">
+      <div class="panel"><p class="eyebrow">For someone wonderful</p><h1>A little surprise</h1><p class="lead">There is something waiting especially for you.</p><div class="gift-wrap" id="giftWrap" role="button" tabindex="0" aria-label="Open your birthday gift"><div class="gift" id="gift"><div class="bow"></div><div class="lid"></div><div class="box"></div></div><p class="gift-note">Tap the gift to open it</p></div></div>
+    </section>
+
+    <section class="scene" id="birthdayScene" aria-label="Birthday greeting"><div class="panel"><p class="eyebrow">Today is your day</p><h1>Happy Birthday,<br><span class="birthday-name">Bhondu</span> ♥</h1><p class="lead">Mala tula changla kaytari gift dyaycha hota, but mala tujhi choice nahi mahit. Ani tu sota yevdhi confuse aste tr ky suchla ny mala. Mala khrr tr tula flowers dyayche hote but apla bhetna hoth ny mhanun toh plan mi drop kela cause flowers ghetle jri aste tri tula deta nasta ala. But I wanted to give you something that will make your birthday special, mhanun mi tujhyasathi he banavla ahe. Hope so tula avdel ani ha msg vachun i hope tuzha divas chaan jail. First time banavtoy tr ky chuk rahili asel tr sang mi correct krin. If nahi avdla tari sang, next time ajun changla kaytari dein! ♥</p><button class="button" type="button" data-next="envelopeScene">Open your birthday letter <span aria-hidden="true">✦</span></button></div></section>
+
+    <section class="scene" id="envelopeScene" aria-label="An envelope with your letter">
+      <div class="panel">
+        <p class="eyebrow">Something written just for you</p>
+        <h2>A little letter</h2>
+        <p class="lead">Kahi lihla ahe, khaas tujhya sathi, Hope so tula avdel.</p>
+        <div class="envelope-wrap" id="envelopeWrap" role="button" tabindex="0" aria-label="Open the envelope to read your letter">
+          <div class="envelope" id="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-heart" aria-hidden="true">♥</div>
+            <div class="envelope-flap"></div>
+          </div>
+          <p class="gift-note">Tap on the envelope to open the letter</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene" id="letterScene" aria-label="Birthday letter"><div class="panel"><p class="eyebrow">A wish from the heart</p><h2>Dear Bhondu,</h2><div class="letter">Happy Birthday to the most beautiful and cutest person I know! Tu kharch khupch bhari ahe. Tujhi ek smile maza purna divas chan banavte. Tula baghitlya shivay maza kontacha divas purna hoth nahi mhanun tu disat ny tr mi tuzha photo tri bghto kiva jast ch mann asel tula bghycha tr class samor direct bghyla yeto. Dev karo tujhya aayushyatla ha varsh saglyat chan rahil aani tula sagle sukh milude. Ha divas tujhyasathi khup khup important ahe, mhanun mazyasathi pn ha divas khup special aahe.Mala nehmich tula aani tujhya tyah goad smile la baghayla aavadta. Tujhe sagle swapna, sagle goals ya varshat purna hotil. Nehmich ashich hasat raha, baki mi aahech! lihala ajun khup ky lihla asta but tu kantalshil yevdha vachayla mhanun khup vichar krun ha short and changla message lihla if tula nasel avdla a msg tr tu mala sangu shakte next time mi ajun changla lihaycha try krin <span style="color:var(--gold)">Happy Birthday. ♥</span></div><button class="button" type="button" data-next="reasonsScene">One more little thing <span aria-hidden="true">♥</span></button></div></section>
+
+    <section class="scene" id="reasonsScene" aria-label="Reasons you are special"><div class="panel"><p class="eyebrow">Tap each one to reveal it <br>(Space would have fallen short to write everything I love about you, so I'm writing just 3 things.)</h2><div class="reasons"><button class="reason" type="button"><strong>01. Your Smile</strong><span>Tujhi Smile, Tu jevha smile karte na Uffff... तुला बस बघतच राहावं असं वाटतं!, Ashi smile karat raha, it suits you very well.</span></button><button class="reason" type="button"><strong>02. Your Eyes</strong><span>Tuzya dolyanvarun nazar kuth जातच nahi, I could look at you all day without getting tired.</span></button><button class="reason" type="button"><strong>03. The way you are</strong><span>The way you are, I can literally talk about anything with you without being judged.<br>You are the cutest but don't leave my message on pending! cause I overthink sometimes</span></button></div><button class="button" type="button" data-next="cakeScene">Now make a wish <span aria-hidden="true">✦</span></button></div></section>
+
+    <section class="scene" id="cakeScene" aria-label="Interactive birthday cake"><div class="panel"><p class="eyebrow">One wish, just for you</p><h2>Make a wish</h2><p class="lead">Tap each glowing candle to make it disappear. When they are all out, your celebration begins.</p><div class="cake-stage"><div class="cake" aria-label="Birthday cake with five candles"><div class="candle-row" id="candles"></div><div class="tier top"><div class="icing"></div></div><div class="tier middle"><div class="icing"></div></div><div class="tier bottom"><div class="icing"></div></div><div class="plate"></div></div></div><p class="wish-counter" id="wishCounter">5 candles are glowing</p></div></section>
+  </main>
+
+  <div id="celebration" aria-live="polite"><canvas id="fireworks"></canvas><div class="final-panel"><p class="eyebrow">With all my warmest wishes</p><h1>Happy Birthday,<br>Mrunmayi! ♥</h1><p class="lead">May your year ahead be full of beautiful surprises, gentle happiness, and everything that makes you feel truly special. Keep smiling — the world is brighter with you in it.</p><button class="button" type="button" id="replay">Celebrate again ✦</button></div></div><div id="particles" aria-hidden="true"></div>
+
+  <script>
+    const scenes = document.querySelectorAll('.scene');
+    const loading = document.getElementById('loading');
+    const gift = document.getElementById('gift');
+    const giftWrap = document.getElementById('giftWrap');
+    const candles = document.getElementById('candles');
+    const counter = document.getElementById('wishCounter');
+    const celebration = document.getElementById('celebration');
+    const particles = document.getElementById('particles');
+    let giftOpened = false, extinguished = 0, fireworksTimer;
+
+    window.addEventListener('load', () => setTimeout(() => loading.classList.add('done'), 2200));
+    function showScene(id) { scenes.forEach(scene => scene.classList.toggle('active', scene.id === id)); }
+    document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => showScene(button.dataset.next)));
+    // Change this to any secret word or date you like. The check ignores uppercase/lowercase.
+    const SECRET_CODE = '0708';
+    const secretForm = document.getElementById('secretForm');
+    const secretCode = document.getElementById('secretCode');
+    const secretError = document.getElementById('secretError');
+    secretForm.addEventListener('submit', event => { event.preventDefault(); if (secretCode.value.trim().toUpperCase() === SECRET_CODE) { secretError.textContent = ''; burst('✦', 16); showScene('giftScene'); } else { secretError.textContent = 'That is not the Secret Code try the Password of my phone That I told You ♥'; secretCode.focus(); } });
+    document.querySelectorAll('.reason').forEach(reason => reason.addEventListener('click', () => reason.classList.toggle('open')));
+    function openGift() { if (giftOpened) return; giftOpened = true; gift.classList.add('open'); burst('✦', 28); setTimeout(() => showScene('birthdayScene'), 1150); }
+    giftWrap.addEventListener('click', openGift);
+    giftWrap.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openGift(); } });
+
+    const envelope = document.getElementById('envelope');
+    const envelopeWrap = document.getElementById('envelopeWrap');
+    let envelopeOpened = false;
+    function openEnvelope() { if (envelopeOpened) return; envelopeOpened = true; envelope.classList.add('open'); burst('✦', 14); setTimeout(() => showScene('letterScene'), 950); }
+    envelopeWrap.addEventListener('click', openEnvelope);
+    envelopeWrap.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openEnvelope(); } });
+
+    for (let i = 0; i < 5; i++) { const candle = document.createElement('button'); candle.className = 'candle'; candle.type = 'button'; candle.setAttribute('aria-label', 'Blow out candle ' + (i + 1)); candle.innerHTML = '<span class="flame"></span>'; candle.addEventListener('click', () => { if (candle.classList.contains('out')) return; candle.classList.add('out'); extinguished++; counter.textContent = extinguished === 5 ? 'Your wish is on its way…' : (5 - extinguished) + ' candle' + (5 - extinguished === 1 ? ' is' : 's are') + ' glowing'; if (extinguished === 5) setTimeout(startCelebration, 800); }); candles.appendChild(candle); }
+
+    function burst(symbol, count) { for (let i=0; i<count; i++) { const el=document.createElement('span'); el.className='heart'; el.textContent=symbol; el.style.left=(42+Math.random()*16)+'vw'; el.style.bottom=(30+Math.random()*22)+'vh'; el.style.setProperty('--drift', (Math.random()*70-35)+'vw'); el.style.fontSize=(1+Math.random()*1.6)+'rem'; el.style.animationDuration=(2.3+Math.random()*2.3)+'s'; particles.appendChild(el); setTimeout(()=>el.remove(),5000); } }
+    function confetti(count=120) { const colors=['#c6a165','#c79a96','#f4ece1','#8c2436','#e4c98f']; for (let i=0;i<count;i++) { const el=document.createElement('i'); el.className='confetti'; el.style.left=Math.random()*100+'vw'; el.style.top=(-5-Math.random()*25)+'vh'; el.style.setProperty('--x',(Math.random()*28-14)+'vw'); el.style.setProperty('--duration',(2.6+Math.random()*2.7)+'s'); el.style.setProperty('--c',colors[Math.floor(Math.random()*colors.length)]); particles.appendChild(el); setTimeout(()=>el.remove(),6000); } }
+    function startCelebration() { celebration.classList.add('show'); burst('♥', 55); confetti(); startFireworks(); }
+    document.getElementById('replay').addEventListener('click', () => { burst('♥',42); confetti(90); });
+
+    function addNextSurprise() {
+      if (document.getElementById('nextSurprise')) return;
+      const message = document.createElement('p');
+      message.className = 'more-message';
+      message.textContent = 'There is more';
+      const next = document.createElement('button');
+      next.className = 'button';
+      next.type = 'button';
+      next.id = 'nextSurprise';
+      next.textContent = 'Next →';
+      next.addEventListener('click', () => {
+        clearInterval(fireworksTimer);
+        const frame = document.createElement('iframe');
+        frame.id = 'proposalFrame';
+        frame.title = 'A special proposal';
+        frame.src = 'proposal.html';
+        document.body.appendChild(frame);
+      });
+      const replay = document.getElementById('replay');
+      replay.insertAdjacentElement('afterend', message);
+      message.insertAdjacentElement('afterend', next);
+    }
+    addNextSurprise();
+
+    const canvas=document.getElementById('fireworks'), ctx=canvas.getContext('2d'); let sparks=[];
+    function sizeCanvas(){ canvas.width=innerWidth*devicePixelRatio; canvas.height=innerHeight*devicePixelRatio; ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); }
+    addEventListener('resize',sizeCanvas); sizeCanvas();
+    function launch(){ const x=innerWidth*(.12+Math.random()*.76), y=innerHeight*(.08+Math.random()*.5), hue=Math.random()<0.5 ? (32+Math.random()*14) : (348+Math.random()*16); for(let i=0;i<48;i++){ const a=Math.PI*2*i/48+Math.random()*.1, speed=1.5+Math.random()*4; sparks.push({x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,life:65+Math.random()*25,hue}); } }
+    function draw(){ ctx.clearRect(0,0,innerWidth,innerHeight); sparks=sparks.filter(s=>s.life>0); sparks.forEach(s=>{ s.x+=s.vx; s.y+=s.vy; s.vy+=.035; s.vx*=.986; s.life--; ctx.fillStyle='hsla('+s.hue+',62%,66%,'+(s.life/90)+')'; ctx.beginPath(); ctx.arc(s.x,s.y,2,0,Math.PI*2); ctx.fill(); }); if(celebration.classList.contains('show')) requestAnimationFrame(draw); }
+    function startFireworks(){ clearInterval(fireworksTimer); launch(); launch(); draw(); fireworksTimer=setInterval(()=>{ launch(); if(Math.random()>.45) launch(); },900); }
+
+    // Optional local music support. Uncomment the <source> near the top, then this button activates automatically.
+    const music=document.getElementById('music'), musicButton=document.getElementById('musicButton');
+    if (music.querySelector('source')) { musicButton.disabled=false; musicButton.addEventListener('click', async()=>{ if(music.paused){ try{ await music.play(); musicButton.textContent='♫'; musicButton.setAttribute('aria-label','Pause background music'); }catch(e){} } else { music.pause(); musicButton.textContent='♫'; musicButton.setAttribute('aria-label','Play background music'); } }); }
+  </script>
+</body>
+</html>
